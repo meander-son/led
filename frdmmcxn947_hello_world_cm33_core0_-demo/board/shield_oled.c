@@ -59,7 +59,12 @@ OLED_Init(void)
 
 	lpi2c_master_config_t sMasterConfig = {0};
 	LPI2C_MasterGetDefaultConfig(&sMasterConfig);
-	LP_FLEXCOMM_Init(7u, LP_FLEXCOMM_PERIPH_LPI2C);
+	status_t status = LP_FLEXCOMM_Init(SHIELD_OLED_I2C_INSTANCE, LP_FLEXCOMM_PERIPH_LPI2C);
+	if (kStatus_Success != status)
+	{
+		PRINTF("Failed to initialize FLEXCOMM%u in I2C mode: %d\r\n", SHIELD_OLED_I2C_INSTANCE, (int)status);
+		return;
+	}
 	LPI2C_MasterInit(SHIELD_OLED_I2C, &sMasterConfig, SHIELD_OLED_LPI2C_MASTER_CLOCK_FREQUENCY);
 
 	OLED_Send(init, 27, OLED_COMMAND);
