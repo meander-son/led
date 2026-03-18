@@ -41,9 +41,9 @@ int main(void)
     /* Init board hardware. */
     BOARD_InitHardware();
 
-    /* attach FRO 12M to FLEXCOMM2 */
-	CLOCK_SetClkDiv(kCLOCK_DivFlexcom2Clk, 1u);
-	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
+    /* attach FRO 12M to FLEXCOMM7 */
+	CLOCK_SetClkDiv(kCLOCK_DivFlexcom7Clk, 1u);
+	CLOCK_AttachClk(kFRO12M_to_FLEXCOMM7);
 
 	SDK_DelayAtLeastUs(1000000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 
