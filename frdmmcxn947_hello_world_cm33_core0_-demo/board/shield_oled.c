@@ -8,6 +8,7 @@
 #include "shield_oled.h"
 
 #include "fsl_lpi2c.h"
+#include "fsl_lpflexcomm.h"
 #include <stdio.h>
 #include <string.h>
 #include "board.h"
@@ -58,6 +59,7 @@ OLED_Init(void)
 
 	lpi2c_master_config_t sMasterConfig = {0};
 	LPI2C_MasterGetDefaultConfig(&sMasterConfig);
+	LP_FLEXCOMM_Init(7u, LP_FLEXCOMM_PERIPH_LPI2C);
 	LPI2C_MasterInit(SHIELD_OLED_I2C, &sMasterConfig, SHIELD_OLED_LPI2C_MASTER_CLOCK_FREQUENCY);
 
 	OLED_Send(init, 27, OLED_COMMAND);
