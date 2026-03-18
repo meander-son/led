@@ -1,0 +1,9 @@
+../board/oled_shapes.c:10:6:OLED_DrawPixel	24	static
+../board/oled_shapes.c:25:6:OLED_ClearFB	8	static
+../board/oled_shapes.c:31:6:OLED_Update	16	static
+../board/oled_shapes.c:42:6:DrawRect	32	static
+../board/oled_shapes.c:56:6:DrawCurve	32	static
+../board/oled_shapes.c:68:6:DrawTriangle	40	static
+../board/oled_shapes.c:102:6:DrawEyelid	48	static
+../board/oled_shapes.c:116:6:DrawMouth	32	static
+../board/oled_shapes.c:130:6:DrawFace	48	static

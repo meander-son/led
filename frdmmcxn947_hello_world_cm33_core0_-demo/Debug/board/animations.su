@@ -1,0 +1,4 @@
+../board/animations.c:6:6:checkEyesClosed	4	static
+../board/animations.c:11:9:eyesClosed	16	static
+../board/animations.c:25:9:eyesOpen	16	static
+../board/animations.c:38:9:openClose	16	static
