@@ -3,8 +3,8 @@
 
 #include "fsl_common.h"
 
-#define SHIELD_OLED_I2C 	(LPI2C7)
-#define SHIELD_OLED_LPI2C_MASTER_CLOCK_FREQUENCY CLOCK_GetLPFlexCommClkFreq(7u)
+#define SHIELD_OLED_I2C 	(LPI2C2)
+#define SHIELD_OLED_LPI2C_MASTER_CLOCK_FREQUENCY CLOCK_GetLPFlexCommClkFreq(2u)
 
 #define OLED_COMMAND 0x00
 #define OLED_DATA 0x40

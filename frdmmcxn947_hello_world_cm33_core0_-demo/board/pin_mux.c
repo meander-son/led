@@ -231,8 +231,8 @@ void BOARD_InitPins(void)
 OLEDI2C:
 - options: {callFromInitBoot: 'true', coreID: cm33_core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: D15, peripheral: LP_FLEXCOMM7, signal: LPFLEXCOMM_P0, pin_signal: PIO3_2/FC7_P0/CT4_MAT0/PWM0_X0/FLEXIO0_D10/SMARTDMA_PIO2/SIM1_PD}
-  - {pin_num: D16, peripheral: LP_FLEXCOMM7, signal: LPFLEXCOMM_P1, pin_signal: PIO3_3/FC7_P1/CT4_MAT1/PWM0_X1/FLEXIO0_D11/SMARTDMA_PIO3/SIM1_RST}
+  - {pin_num: P1, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P0, pin_signal: PIO4_0/WUU0_IN18/TRIG_IN6/FC2_P0/CT_INP16/SMARTDMA_PIO24/PLU_IN0/SINC0_MCLK3}
+  - {pin_num: P2, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P1, pin_signal: PIO4_1/TRIG_IN7/FC2_P1/CT_INP17/SMARTDMA_PIO25/PLU_IN1}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -245,23 +245,23 @@ OLEDI2C:
  * END ****************************************************************************************************************/
 void OLEDI2C(void)
 {
-    /* Enables the clock for PORT3: Enables clock */
-    CLOCK_EnableClock(kCLOCK_Port3);
+    /* Enables the clock for PORT4: Enables clock */
+    CLOCK_EnableClock(kCLOCK_Port4);
 
-    /* PORT3_2 (pin D15) is configured as FC7_P0 */
-    PORT_SetPinMux(PORT3, 2U, kPORT_MuxAlt2);
+    /* PORT4_0 (pin P1) is configured as FC2_P0 */
+    PORT_SetPinMux(PORT4, 0U, kPORT_MuxAlt2);
 
-    PORT3->PCR[2] = ((PORT3->PCR[2] &
+    PORT4->PCR[0] = ((PORT4->PCR[0] &
                       /* Mask bits to zero which are setting */
                       (~(PORT_PCR_IBE_MASK)))
 
                      /* Input Buffer Enable: Enables. */
                      | PORT_PCR_IBE(PCR_IBE_ibe1));
 
-    /* PORT3_3 (pin D16) is configured as FC7_P1 */
-    PORT_SetPinMux(PORT3, 3U, kPORT_MuxAlt2);
+    /* PORT4_1 (pin P2) is configured as FC2_P1 */
+    PORT_SetPinMux(PORT4, 1U, kPORT_MuxAlt2);
 
-    PORT3->PCR[3] = ((PORT3->PCR[3] &
+    PORT4->PCR[1] = ((PORT4->PCR[1] &
                       /* Mask bits to zero which are setting */
                       (~(PORT_PCR_IBE_MASK)))
 
